@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prince Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <style>
+        /* Global styles */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: "Poppins", sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation styles */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            background-color: rgba(104, 220, 81, 0.8);
+            padding: 0 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav .left {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.04rem;
+            padding: 10px 20px;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            transition: color 0.3s, font-size 0.3s, border-color 0.3s, background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: rgb(144, 115, 115);
+            font-size: 1.05rem;
+            border-color: rgb(144, 115, 115);
+            background-color: rgba(144, 115, 115, 0.2);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul li a:active {
+            background-color: rgba(144, 115, 115, 0.4);
+        }
+
+        /* Main content styles */
+        main {
+            padding-top: 100px;
+            /* For fixed nav */
+        }
+
+        main hr {
+            border: 0;
+            background: greenyellow;
+            height: 1.2px;
+            margin: 40px 84px;
+        }
+
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 130px 0;
+            flex-wrap: wrap;
+        }
+
+        .leftSection {
+            font-size: 2.5rem;
+            max-width: 40%;
+        }
+
+        .leftSection span.purple {
+            color: orange;
+        }
+
+        .leftSection #element {
+            color: orange;
+        }
+
+        .rightSection img {
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+        }
+
+        .secondSection,
+        .projectsSection,
+        .contactSection {
+            max-width: 80vw;
+            margin: auto;
+        }
+
+        .secondSection h1,
+        .projectsSection h1,
+        .contactSection h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .about {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .about ul {
+            list-style-type: none;
+            padding: 0;
+            max-width: 50%;
+        }
+
+        .about ul li {
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .about img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            margin-top: 20px;
+            flex: 1;
+        }
+
+        .projects ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .projects ul li {
+            width: 45%;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background: #222;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .projects ul li:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .projects ul li h3 {
+            margin-bottom: 10px;
+        }
+
+        .projects ul li img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        /* Contact section styles */
+        .contact ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        .contact ul li {
+            margin: 10px 0;
+        }
+
+        .contact ul li h3 {
+            font-size: 1.2rem;
+        }
+
+        .contact ul li a {
+            color: orange;
+            text-decoration: none;
+        }
+
+        .contact ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: rgba(104, 220, 81, 0.8);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">Prince Portfolio</div>
+            <div class="right">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="home" class="firstSection section">
+            <div class="leftSection">
+                <p>Hi, My Name is <span class="purple">Prince Yadav</span></p>
+                <p>I am a Passionate <br> <span id="element"></span></p>
+            </div>
+            <div class="rightSection">
+                <img src="image.png" alt="Prince Image">
+            </div>
+        </section>
+        <hr>
+        <section id="about" class="secondSection section">
+            <h1>About</h1>
+            <div class="about">
+                <ul data-aos="fade-right">
+                    <li>
+                        <h3>Web Developer</h3>
+                    </li>
+                    <li>
+                        <h3>Java with DSA Enthusiast</h3>
+                    </li>
+                    <li>
+                        <h3>Class 10</h3>
+                        <p>Completed Class 10 from St Xavier School Sammopur Azamgarh with 79.80%.</p>
+                    </li>
+                    <li>
+                        <h3>Class 12</h3>
+                        <p>Completed Class 12 from Radhika Senior Secondary School Karawal Majhgawan Gorakhpur with
+                            69.80%</p>
+                    </li>
+                    <li>
+                        <h3>B-Tech Journey</h3>
+                        <p>Currently pursuing B-Tech in Computer Science and Engineering from Galgotias University,
+                            expected to graduate in 2027.</p>
+                    </li>
+                </ul>
+                <img src="web.png" alt="Web Developer Image" data-aos="fade-left">
+            </div>
+        </section>
+        <hr>
+        <section id="projects" class="projectsSection section">
+            <h1>My Projects</h1>
+            <div class="projects">
+                <ul>
+                    <li data-aos="zoom-in">
+                        <h3>Project 1: Stopwatch Web Application</h3>
+                        <img src="Screenshot stopwatch.png" alt="Screenshot Stopwatch Web Application">
+                        <p>A stopwatch application with start, stop,reset and laps functionalities for precise timing.
+                        </p>
+                    </li>
+                    <li data-aos="zoom-in">
+                        <h3>Project 2: Tic-Tac-Toe Web Application</h3>
+                        <img src="Screenshot Tic Tac Toe.png" alt="Screenshot Tic-Tac-Toe Web Application">
+                        <p>A classic Tic-Tac-Toe game implemented in a web application where players can compete to win
+                            by aligning three marks.</p>
+                    </li>
+                    <li data-aos="zoom-in">
+                        <h3>Project 3: Portfolio Website</h3>
+                        <img src="Screenshot Portfolio.png" alt="Screenshot Portfolio Website">
+                        <p>This portfolio website showcases My Education and working experience by Projects Screenshot, this is created during my internship at
+                            Prodigyinfo.</p>
+                    </li>
+                    <li data-aos="zoom-in">
+                        <h3>Project 4: Weather App</h3>
+                        <img src="Screenshot Weather App.png" alt="Screenshot Weather App">
+                        <p>This is a Weather App which helps to get weather information were you are show the temperature
+                            and weather condition.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <hr>
+        <section id="contact" class="contactSection section">
+            <h1>Contact Me</h1>
+            <div class="contact">
+                <ul data-aos="fade-up">
+                    <li>
+                        <h3>Email: <a href="mailto:prince041670@gmail.com">prince041670@gmail.com</a></h3>
+                    </li>
+                    <li>
+                        <h3>LinkedIn: <a href="https://www.linkedin.com/in/prince-yadav-331bb5298/">Prince Yadav</a>
+                        </h3>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Prince Yadav. All rights reserved.</p>
+    </footer>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Web Developer', 'Java with DSA Enthusiast'],
+            typeSpeed: 50,
+            loop: true
+        });
+        AOS.init();
+    </script>
+</body>
+
+</html>
